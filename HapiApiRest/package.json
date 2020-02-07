@@ -1,0 +1,26 @@
+{
+  "name": "hapi-api-rest",
+  "version": "5.0.0",
+  "description": "simple example api rest with hapi js and mongodb",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "hapi"
+  ],
+  "author": "Tony133",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tony133/HapiApiRest"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/joi": "^15.0.0",
+    "mongoose": "^4.12.4",
+    "nodemon": "^2.0.2"
+  }
+}

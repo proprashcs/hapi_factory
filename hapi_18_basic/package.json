@@ -1,0 +1,22 @@
+{
+  "name": "hapi-v18.x",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/basic": "^5.1.1",
+    "@hapi/boom": "^8.0.1",
+    "@hapi/cookie": "^10.1.2",
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/hoek": "^8.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
