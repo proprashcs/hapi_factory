@@ -8,8 +8,8 @@ let Service = require('../Services').queries;
 //connect socket
 
 //exports.connectSocket = SocketManager.connectSocket;
-
-mongoose.connect(Config.dbConfig.config.dbURI, {useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false}, function (err) {
+// Config.dbConfig.config.dbURI
+mongoose.connect('mongodb://127.0.0.1:27017/hapi_demo', {useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify:false}, function (err) {
     if (err) {
         console.log("DB Error: ", err);
         process.exit(1);

@@ -27,7 +27,8 @@ exports.bookFindById = async (request, h) => {
 }
 
 exports.createBook = async (request, h) => {
-console.log(request);
+// console.log(request);
+debugger;
     try {
 
         const book = new Book(request.payload);

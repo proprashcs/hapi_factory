@@ -24,18 +24,18 @@ async function userSignUp(payloadData) {
             email: payloadData.email,
             isDeleted: false
         };
-        let check1 = await getRequired(Modal.Users, query, {}, {lean: true});
-        if (check1.length)
-            return Promise.reject(Config.APP_CONSTANTS.STATUS_MSG.ERROR.ALREADY_EXIST)
+        // let check1 = await getRequired(Modal.Users, query, {}, {lean: true});
+        // if (check1.length)
+        //     return Promise.reject(Config.APP_CONSTANTS.STATUS_MSG.ERROR.ALREADY_EXIST)
     }
 
     if (payloadData.userName) {
         let query = {
             userName: payloadData.userName,
         };
-        let check1 = await getRequired(Modal.Users, query, {}, {lean: true});
-        if (check1.length)
-            return Promise.reject(Config.APP_CONSTANTS.STATUS_MSG.ERROR.USERNAME_EXIST)
+        // let check1 = await getRequired(Modal.Users, query, {}, {lean: true});
+        // if (check1.length)
+        //     return Promise.reject(Config.APP_CONSTANTS.STATUS_MSG.ERROR.USERNAME_EXIST)
     }
 
     if (payloadData.phoneNumber) {
@@ -43,9 +43,9 @@ async function userSignUp(payloadData) {
             countryCode: payloadData.countryCode,
             phoneNumber: payloadData.phoneNumber,
         };
-        let check1 = await getRequired(Modal.Users, query, {}, {lean: true});
-        if (check1.length)
-            return Promise.reject(Config.APP_CONSTANTS.STATUS_MSG.ERROR.PHONE_ALREADY_EXIST)
+        // let check1 = await getRequired(Modal.Users, query, {}, {lean: true});
+        // if (check1.length)
+        //     return Promise.reject(Config.APP_CONSTANTS.STATUS_MSG.ERROR.PHONE_ALREADY_EXIST)
     }
 
     // if(payloadData.profileImage){
@@ -53,9 +53,9 @@ async function userSignUp(payloadData) {
     // }
 
     let register = await registerUser(payloadData);
-    let finalData = await tokenUpdate(register);
-    delete finalData.password;
-    return finalData
+    // let finalData = await tokenUpdate(register);
+    // delete finalData.password;
+    return register;
 
 }
 
@@ -96,7 +96,7 @@ async function registerUser(payloadData) {
         Service.saveData(Modal.Users, query, (err, result) => {
             if (err) reject(err);
             else {
-                signupMail(result);
+                // signupMail(result);
                 resolve(result)
             }
         })

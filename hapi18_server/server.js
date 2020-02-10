@@ -6,9 +6,9 @@ const bootStrap = require('./Utils/bootStrap');
 const privacyPolicy = require('./Utils/privacyPolicy');
 
 const init = async () => {
-
+  
     const server = Hapi.server({
-        port: Config.dbConfig.config.PORT,
+        port: 8000,// Config.dbConfig.config.PORT
         host: 'localhost', routes: { cors: true }
     });
 

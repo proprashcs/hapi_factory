@@ -3,6 +3,8 @@
 const Hapi = require('@hapi/hapi');
 const mongoose = require('mongoose');
 const config = require('./config/developement');
+mongoose.Promise = require('bluebird');
+// const plugins = require('./plugins/mongoose.plugin')
 
 
 // Routes
@@ -10,10 +12,21 @@ const indexRoutes = require('./routes/index');
 const booksRoutes = require('./routes/books');
 const libraryRoutes = require('./routes/libraries');
 
+
 //Set up default mongoose connection
-mongoose.connect('mongodb://127.0.0.1:27017/hapi_demo', {
-  useMongoClient: true
+// mongodb+srv://hapi:qwerty12345@cluster0-bakda.mongodb.net/hapi_live?retryWrites=true&w=majority
+const promise = mongoose.connect('mongodb://127.0.0.1:27017/hapi_demo', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
+promise.then(function(db) {
+  console.log("Connected to database!!!");
+}, function(err){
+  console.log("Error in connecting database " + err);
+});
+
+// mongodb+srv://hapi:<password>@cluster0-bakda.mongodb.net/test?retryWrites=true&w=majority
+
 
 //Get the default connection
 const db = mongoose.connection;
@@ -28,8 +41,8 @@ const server = new Hapi.Server({
 
 // Register routes
 const registerRoutes = () => {
-  indexRoutes.registerRoutes(server)
-  booksRoutes.registerRoutes(server)
+  indexRoutes.registerRoutes(server),
+  booksRoutes.registerRoutes(server),
   libraryRoutes.registerRoutes(server)
 }
 
